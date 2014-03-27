@@ -1,5 +1,10 @@
 # -*- encoding : utf-8 -*-
 FactoryGirl.define do
+
+  sequence :email do
+    "email_#{rand(1_000_000)}@example.com"
+  end
+
   factory :district do
     sequence(:name)      { |n| "District %09d" % n }
     contacts             { "#{FactoryGirl.generate(:email)},#{FactoryGirl.generate(:email)}" }

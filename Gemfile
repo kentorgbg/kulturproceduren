@@ -23,13 +23,17 @@ group :development do
   gem "capistrano", "~> 3.1.0"
   gem "capistrano-rails", "~> 1.1.1"
   gem "capistrano-rbenv", "~> 2.0.2"
-  gem "pry"
 end
 
 group :test do
   gem "factory_girl_rails", "~> 4.3.0"
   gem "mocha", "1.0.0", :require => false
   gem 'simplecov', "~> 0.7.1", :require => false
-  gem "pry"
   gem "timecop"
+  gem "shoulda-matchers", "~> 2.4.0"
+end
+
+
+group :development, :test do
+  gem "rspec-rails"
 end
