@@ -63,7 +63,7 @@ class CultureProvider < ActiveRecord::Base
     :active
 
   validates_presence_of :name,
-    :message => "Namnet får inte vara tomt."
+    :message => "Namnet får inte vara tomt"
 
   default_scope lambda{ order(name: :asc) }
 
