@@ -135,7 +135,7 @@ class Event < ActiveRecord::Base
   validates_presence_of :description,
     :message => "Beskrivningen får inte vara tom"
   validates_numericality_of :from_age, :to_age, :only_integer => true,
-    :message => "Åldern måste vara ett giltigt heltal."
+    :message => "Åldern måste vara ett giltigt heltal"
   validates_presence_of :visible_from,
     :message => "Du måste ange datum"
   validates_presence_of :visible_to,
