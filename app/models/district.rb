@@ -22,7 +22,7 @@ class District < ActiveRecord::Base
     :extens_id
 
   validates_presence_of :name,
-    :message => "Namnet får inte vara tomt."
+    :message => "Namnet får inte vara tomt"
 
   # Accessors for caching child and ticket amounts when doing the ticket allotment
   attr_accessor :num_children, :num_tickets, :distribution_schools
