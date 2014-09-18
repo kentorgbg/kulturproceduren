@@ -86,7 +86,7 @@
     <%= f.buttons do -%>
       <%= f.hidden_field :group_id %>
       <%= f.hidden_field :occasion_id %>
-      <%= f.submit(@is_edit ? "Uppdatera bokning" : "Boka") %>
+      <%= f.submit(@is_edit ? "Uppdatera bokning" : "Boka", :disable_with => "Sparar...") %>
     <% end -%>
   <% end %>
 <% end %>
