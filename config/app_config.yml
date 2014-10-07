@@ -1,6 +1,7 @@
 common: &common
     :assets_url_base: "//assets.malmo.se/external/v4/"
     :asset_host: "http://www.malmo.se/assets-2.0"
+    :elit_kp_service_endpoint: "http://localhost:9080/elit-kpService/elit-kpPort"
 
     :salt_length: 10
     :request_key_length: 20
@@ -27,10 +28,10 @@ common: &common
         :thumb_height: 255
 
     :kp_external_link: "http://www.malmo.se/kulturproceduren"
-    :kp_manual_link: "http://www.malmo.se/Medborgare/Kultur--noje/Barn--unga/Kultur-till-forskolor-och-skolor/Anvandarhjalp-till-Kulturproceduren.html"
-    :kbu_link: "http://www.malmo.se/Medborgare/Kultur--noje/Barn--unga/Kultur-till-forskolor-och-skolor.html"
+    :kp_manual_link: "http://www.malmo.se/Kultur--fritid/Kultur--noje/Barn--familj/Kultur-till-forskolor-och-skolor/Anvandarhjalp-till-Kulturproceduren.html"
+    :kbu_link: "http://www.malmo.se/Kultur--fritid/Kultur--noje/Barn--familj/Kultur-till-forskolor-och-skolor.html"
     :kbu_facebook: "http://www.facebook.com/kbumalmo"
-    :culture_bus_link: "http://malmo.se/Medborgare/Kultur--noje/Barn--unga/Kultur-till-forskolor-och-skolor/Kulturbussen.html"
+    :culture_bus_link: "http://malmo.se/Kultur--fritid/Kultur--noje/Barn--familj/Kultur-till-forskolor-och-skolor/Kulturbussen.html"
 
     :allotment:
         :proximity_boundary: 3
@@ -38,9 +39,7 @@ common: &common
     # OBS - se även config/enviroments/*rb actionmailer-config ... From-address måste anges även där
     :mailers:
         :from_address: "Kulturproceduren, Malmö Stad <noreply@malmo.se>"
-        :bus_booking_recipient: "camilla.bengtsson@malmo.se"
-
-    :elit_kp_service_endpoint: "http://localhost:9080/elit-kpService/elit-kpPort"
+        :bus_booking_recipient: "felicia.westerdahl@malmo.se; sofia.ek.landen@malmo.se"
 
 development:
     <<: *common
@@ -62,6 +61,7 @@ release_test:
 
 production:
     <<: *common
+    :instance_message: "Ursäkta röran Kulturproceduren bygger om. Det går fortfarande att använda siten som vanligt."
 
 education:
     <<: *common
