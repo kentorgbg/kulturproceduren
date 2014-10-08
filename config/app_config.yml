@@ -80,3 +80,4 @@ archive:
 acceptance:
     <<: *common
     :instance_title: "Acceptanstest"
+    :instance_message: "TEST123"
