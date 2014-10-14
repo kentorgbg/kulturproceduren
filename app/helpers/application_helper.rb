@@ -128,11 +128,11 @@ module ApplicationHelper
       options[:src] = image_path + image.image_url
     end
 
-    if image.width > image.height
-      options[:style] = "width: 100%"
-    else
-      options[:style] = "height: 100%"
-    end
+    #if image.width > image.height
+    #  options[:style] = "max-width: 100%"
+    #else
+    #  options[:style] = "height: 100%"
+    #end
 
     return tag("img", options).html_safe
   end
