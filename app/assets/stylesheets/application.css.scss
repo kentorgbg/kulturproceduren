@@ -15,9 +15,11 @@
 @import "pages/users";
 @import "pages/versions";
 
-#footer {
+.wrapper{
+	min-height: 100%;
+}
+#malmo-footer {
 	position:absolute;
-	bottom:0;
+	margin-bottom:0;
 	width:100%;
-	height:1003px;
 }
