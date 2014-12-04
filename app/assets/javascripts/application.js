@@ -12,7 +12,7 @@
 //
 //= stub wysiwyg
 //= require jquery
-//= require bootstrap-sprockets
+//= require jquery.ui.tabs
 //= require jquery_ujs
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.sv

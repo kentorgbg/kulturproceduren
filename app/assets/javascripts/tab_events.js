@@ -1,14 +1,4 @@
-$('#tab1').click(function (e) {
-  alert('tab1');
-  e.defaultPrevented();
+jQuery(function() {
+	jQuery("#tabs_event_types").tabs({ active: 0});
 });
-
-$('#tab2').click(function (e) {
-  alert('tab2');
-  e.defaultPrevented();
-});
-
-$('#tab3').click(function (e) {
-  alert('tab3');
-  e.defaultPrevented();
-});
+   
