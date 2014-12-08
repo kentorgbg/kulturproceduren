@@ -1,52 +1,51 @@
 ul.culture-providers {
     font-family: $sans-serif;
 }
-section.events {
-    @include clearfix();
 
-    .tabs_event_types {
-      background: transparent;
-      border: none;
-      .ui-widget-header {
+nav.tab-event-types {
+    left: 0;
+    background: transparent;
+    border: none;
+    float: left;
+    .ui-widget-header {
         background: transparent;
         border: none;
         border-bottom: 1px solid #c0c0c0;
         -moz-border-radius: 0px;
         -webkit-border-radius: 0px;
         border-radius: 0px;
-      }
-      .ui-tabs-nav {
+    }
+    .ui-tabs-nav {
         .ui-state-default {
-          background: transparent;
-          border: none;
+            background: transparent;
+            border: none;
         }
         .ui-state-active {
-          background: transparent url(img/uiTabsArrow.png) no-repeat bottom center;
-          border: none;
+            background: transparent url(img/uiTabsArrow.png) no-repeat bottom center;
+            border: none;
         }
         .ui-state-default a {
-          color: #c0c0c0;
+            color: #333333;
+            background-color: white;
         }
         .ui-state-active a {
-         color: #459e00;
-       }
-      }
+            background-color: #e0e0e0;
+            border-color: #dbdbdb;
+            color: #333333;
+        }
     }
+}
+
+section.events {
+    @include clearfix();
+
     .occasions {
-        @include columns(8);
+        @include columns(12);
     }
     .events {
-        @include columns(4, true);
-
-        li {
-            margin-bottom: 0.3em;
-        }
+        @include columns(12);
     }
     .all_events {
-        @include columns(4, true);
-
-        li {
-            margin-bottom: 0.3em;
-        }
+        @include columns(12);
     }
 }
