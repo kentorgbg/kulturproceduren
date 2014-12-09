@@ -21,7 +21,7 @@ nav.tab-event-types {
             border: none;
         }
         .ui-state-active {
-            background: transparent url(img/uiTabsArrow.png) no-repeat bottom center;
+            background: transparent;
             border: none;
         }
         .ui-state-default a {
@@ -38,6 +38,44 @@ nav.tab-event-types {
 
 section.events {
     @include clearfix();
+
+    .occasions {
+        @include columns(12);
+    }
+    .events {
+        @include columns(12);
+    }
+    .all_events {
+        @include columns(12);
+    }
+}
+
+#tabs_event_types {
+    position: static;
+    border-color: red !important;
+    border: 5px !important;
+}
+
+article.events {
+    @include columns(12);
+    .div {
+        #tabs_event_types {
+            .ui-tabs {
+                position: static;
+                border-color: red;
+                border: 5px;
+                padding: 0.2em;
+                padding-top: 0.2em;
+                padding-right-value: 0.2em;
+                padding-bottom: 0.2em;
+                padding-left-value: 0.2em;
+                padding-left-ltr-source: physical;
+                padding-left-rtl-source: physical;
+                padding-right-ltr-source: physical;
+                padding-right-rtl-source: physical;
+            }
+        }
+    }
 
     .occasions {
         @include columns(12);

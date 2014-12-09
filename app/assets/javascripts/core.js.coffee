@@ -18,18 +18,20 @@ $ ->
 
         imgs.show()
 
-        return if imgs.length <= 1
+        if imgs.length <= 1
+            alert("Antal bilder: #{imgs.length} <= 1")
+        else
+            alert("Antal bilder: #{imgs.length} >= 2")
+            slideshow.find("menu").show()
 
-        slideshow.find("menu").show()
-
-        images.cycle(
-            fx: "fade"
-            speed: 200
-            autoHeight: "calc"
-            swipe: true
-            next: "#slideshow menu .next, #slideshow img"
-            prev: "#slideshow menu .prev"
-        )
+            images.cycle(
+                fx: "fade"
+                speed: 200
+                autoHeight: "calc"
+                swipe: true
+                next: "#slideshow menu .next, #slideshow img"
+                prev: "#slideshow menu .prev"
+            )
 
     $(".print-action").on "click", ->
         window.print()

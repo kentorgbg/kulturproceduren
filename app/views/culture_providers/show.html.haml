@@ -29,9 +29,9 @@
 
   - if user_online? && current_user.can_administrate?(@culture_provider)
     = render partial: "administration_menu", locals: { culture_provider: @culture_provider }
-    
-  %section.events
-    #tabs_event_types.tab-content
+
+  %article.body-copy.events
+    #tabs_event_types
       %nav.tab-event-types
         %ul
           %li= link_to "Kommande evenemang", "#tab1"
