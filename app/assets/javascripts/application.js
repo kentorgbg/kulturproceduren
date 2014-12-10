@@ -12,8 +12,8 @@
 //
 //= stub wysiwyg
 //= require jquery
-//= require jquery.ui.tabs
 //= require jquery_ujs
+//= require jquery.ui.tabs
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.sv
 //= require core

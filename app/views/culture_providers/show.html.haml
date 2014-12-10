@@ -4,7 +4,7 @@
 %main
   #slideshow.header
     .map-container(style="display:none;")
-    .images
+    .images(style="position:realative;")
       - @culture_provider.images_excluding_main.each do |image|
         = uploaded_image_tag image
     %menu
@@ -31,7 +31,7 @@
     = render partial: "administration_menu", locals: { culture_provider: @culture_provider }
     
   %section.events
-    #tabs_event_types.tab-content
+    #tabbed.tab-content
       %nav.tab-event-types
         %ul
           %li= link_to "Kommande evenemang", "#tab1"

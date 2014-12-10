@@ -1,4 +1,6 @@
 $ ->
+    $("#tabbed").tabs()
+    
     $("input.datepicker").each ->
         input = $(this)
         input.datepicker(
@@ -12,6 +14,7 @@ $ ->
 
 
     $("#slideshow").each ->
+        alert "Slideshow"
         slideshow = $(this)
         images = slideshow.find(".images")
         imgs = images.children("img")

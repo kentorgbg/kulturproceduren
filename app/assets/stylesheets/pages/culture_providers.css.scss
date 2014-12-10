@@ -3,13 +3,14 @@ ul.culture-providers {
 }
 
 nav.tab-event-types {
+    @include columns(12);
     left: 0;
     background: transparent;
-    border: none;
+    border: 10px;
     float: left;
     .ui-widget-header {
         background: transparent;
-        border: none;
+        border: 10px;
         border-bottom: 1px solid #c0c0c0;
         -moz-border-radius: 0px;
         -webkit-border-radius: 0px;
@@ -18,11 +19,11 @@ nav.tab-event-types {
     .ui-tabs-nav {
         .ui-state-default {
             background: transparent;
-            border: none;
+            border: 10px;
         }
         .ui-state-active {
             background: transparent url(img/uiTabsArrow.png) no-repeat bottom center;
-            border: none;
+            border: 10px;
         }
         .ui-state-default a {
             color: #333333;
