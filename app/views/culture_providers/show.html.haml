@@ -33,7 +33,6 @@
   - if user_online? && current_user.can_administrate?(@culture_provider)
     = render partial: "administration_menu", locals: { culture_provider: @culture_provider }
 
-
   %section.events
     #tabbed.tab-content
       %nav.tab-event-types
