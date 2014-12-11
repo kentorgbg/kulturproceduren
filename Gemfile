@@ -36,7 +36,6 @@ gem "bootstrap-datepicker-rails", "~> 1.3.0.2"
 gem "ckeditor_rails", "~> 4.4.0"
 gem "autoprefixer-rails"
 
-
 group :development do
   gem "capistrano", "~> 3.2.1"
   gem "capistrano-rails", "~> 1.1.1"
