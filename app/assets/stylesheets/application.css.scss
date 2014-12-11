@@ -1,7 +1,5 @@
 @import "malmo_external";
 
-@import "jquery.ui.tabs";
-
 @import "grid";
 @import "navigation";
 @import "content";
@@ -16,3 +14,5 @@
 @import "pages/statistics";
 @import "pages/users";
 @import "pages/versions";
+
+@import "jquery.ui.tabs";
