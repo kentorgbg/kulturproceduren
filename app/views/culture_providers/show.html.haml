@@ -1,6 +1,9 @@
 - content_for(:page_title) do
   = @culture_provider.name
 
+- content_for(:javascript) do
+  = javascript_include_tag "tabbed_content"
+
 %main
   #slideshow.header
     .map-container(style="display:none;")

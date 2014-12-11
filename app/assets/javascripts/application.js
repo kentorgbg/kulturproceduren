@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= stub wysiwyg
+//= stub tabbed_content
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.tabs
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.sv
 //= require core
