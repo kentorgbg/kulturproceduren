@@ -12,6 +12,12 @@ Kulturproceduren::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  # Disable Rails's static asset server (Apache or nginx will already do this)
+  # config.serve_static_assets = true
+
+  # Don't fallback to assets pipeline if a precompiled asset is missed
+  # config.assets.compile = false
+
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
