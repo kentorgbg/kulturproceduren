@@ -8,7 +8,7 @@
 %main
   #slideshow.header
     .map-container(style="display:none;")
-    .images(style="position:realative;")
+    .images(style="position:relative;")
       - @culture_provider.images_excluding_main.each do |image|
         = uploaded_image_tag image
     %menu

@@ -61,7 +61,7 @@ release_test:
 
 production:
     <<: *common
-    
+
 education:
     <<: *common
     :instance_title: "UTB"
@@ -79,3 +79,4 @@ archive:
 acceptance:
     <<: *common
     :instance_title: "Acceptanstest"
+    :instance_message: "Detta är en instans för acceptance-test."

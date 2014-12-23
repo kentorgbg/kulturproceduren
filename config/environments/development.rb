@@ -24,6 +24,23 @@ Kulturproceduren::Application.configure do
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
 
+  # START acceptance & production
+  # Disable Rails's static asset server (Apache or nginx will already do this)
+  #config.serve_static_assets = true
+
+  # Compress JavaScripts and CSS
+  #config.assets.compress = true
+
+  # Use uglifier compressor
+  #config.assets.js_compressor = :uglifier
+
+  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+  #config.assets.precompile += %w( wysiwyg.js tabbed_content.js )
+
+  # Don't fallback to assets pipeline if a precompiled asset is missed
+  #config.assets.compile = false
+  # END acceptance & production
+
   # Do not compress assets
   config.assets.compress = false
 

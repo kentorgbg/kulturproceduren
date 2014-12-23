@@ -62,6 +62,7 @@ class CalendarController < ApplicationController
     redirect_to action: "filter", list: calendar_list
   end
 
+
   protected
 
   # Convenience accessor for the calendar filter in the session
@@ -93,6 +94,7 @@ class CalendarController < ApplicationController
     params[:list] == 'events' ? :events : :occasions
   end
   helper_method :calendar_list
+
 
   private
 
