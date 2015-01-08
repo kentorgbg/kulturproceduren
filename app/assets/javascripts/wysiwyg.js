@@ -1,6 +1,5 @@
-//= require ckeditor-jquery
-
-$(function() {
+jQuery.noConflict();
+(function($) {
     $('.ckeditor').ckeditor({
         toolbar: [
             ['Bold', 'Italic', 'Underline', 'Strike'],
@@ -24,4 +23,4 @@ $(function() {
         height: '22em',
         width: '100%'
     });
-});
+})(jQuery);

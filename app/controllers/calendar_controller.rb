@@ -82,8 +82,8 @@ class CalendarController < ApplicationController
   def occasions_calendar?
     calendar_list == :occasions
   end
-  
   helper_method :occasions_calendar?
+
   def events_calendar?
     calendar_list == :events
   end

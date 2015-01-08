@@ -23,7 +23,7 @@ Kulturproceduren::Application.configure do
   config.assets.compile = false
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( tabbed_content.js )
+  # config.assets.precompile += %w( tabbed_content.js )
   # stop BUG FIX SEARCH
 
   # Don't care if the mailer can't send

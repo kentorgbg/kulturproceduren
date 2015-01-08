@@ -1,10 +1,6 @@
 - content_for(:page_title) do
   = @culture_provider.name
 
-- content_for(:javascript) do
-  = javascript_include_tag "tabbed_content"
-
-
 %main
   #slideshow.header
     .map-container(style="display:none;")
@@ -35,30 +31,31 @@
     = render partial: "administration_menu", locals: { culture_provider: @culture_provider }
 
   %section.events
-    #tabbed.tab-content
-      %nav.tab-event-types
-        %ul
-          %li= link_to "Kommande evenemang", "#tab1"
-          %li= link_to "Löpande evenemang", "#tab2"
+    %nav.tab-event-types
+      .tabbable
+        %ul.nav.nav-tabs{role: "tablist"}
+          %li.active
+            %a{"data-toggle" => "tab", href: "#occasions"} Kommande evenemang
+          %li
+            %a{"data-toggle" => "tab", href: "#events"} Löpande evenemang
           - if user_online? && current_user.can_administrate?(@culture_provider)
-            %li= link_to "Alla evenemang", "#tab3"
-        .occasions
-          .tab-pane{id: "tab1"}
+            %li
+              %a{"data-toggle" => "tab", href: "#all_events"} Alla evenemang
+        .tab-content
+          .tab-pane.occasions.active{id: "occasions"}
             - cache upcoming_occasions_cache_key(@culture_provider), skip_digest: true do
               - unless @culture_provider.upcoming_occasions.empty?
                 = render partial: "calendar/occasions_list",
                   locals: { occasions: @culture_provider.upcoming_occasions,
                   hide_culture_provider: true }
-        .events
-          .tab-pane{id: "tab2"}
+          .tab-pane.events{id: "events"}
             - cache standing_events_cache_key(@culture_provider), skip_digest: true do
               - unless @culture_provider.standing_events.empty?
                 %ul
                   - @culture_provider.standing_events.each do |event|
                     %li= link_to event.name, event
-        - if user_online? && current_user.can_administrate?(@culture_provider)
-          .all_events
-            .tab-pane{id: "tab3"}
+          - if user_online? && current_user.can_administrate?(@culture_provider)
+            .tab-pane.all_events{id: "all_events"}
               - cache all_events_cache_key(@culture_provider), skip_digest: true do
                 - unless @culture_provider.events.empty?
                   %ul
