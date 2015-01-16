@@ -163,6 +163,9 @@ class BookingsController < ApplicationController
         unbooking_notification_request.destroy
       end
 
+      # If 'Speciella krav' has been included in the booking administrators will be notified by email
+      notify_admins_of_new_booking_requirements @booking
+
       flash[:notice] = "Platserna bokades."
       redirect_to booking_url(@booking)
     else
@@ -189,6 +192,8 @@ class BookingsController < ApplicationController
       old_available_tickets = @booking.event.unbooked_tickets
       was_fully_booked = @booking.event.fully_booked?
 
+      requirement_has_changed = @booking.requirement_changed?
+
       Ticket.transaction do
         @booking.save!
       end
@@ -197,6 +202,9 @@ class BookingsController < ApplicationController
           !was_fully_booked && old_available_tickets <= APP_CONFIG[:unbooking_notification_request_seat_limit]
         notify_requests_of_unbooking(@booking.event)
       end
+
+      # If 'Speciella krav' has been modified in the booking administrators will be notified by email
+      notify_admins_of_changed_booking_requirements(@booking, requirement_has_changed)
 
       flash[:notice] = "Bokningen uppdaterades."
       redirect_to booking_url(@booking)
@@ -285,6 +293,7 @@ class BookingsController < ApplicationController
       end
     end
   end
+
   # Makes sure you can only view bookings if you have viewing privileges. For use in <tt>before_filter</tt>
   def require_booking_viewer
     unless current_user.can_view_bookings?
@@ -300,6 +309,7 @@ class BookingsController < ApplicationController
       expire_fragment "culture_providers/show/#{@occasion.event.culture_provider.id}/upcoming_occasions/bookable"
     end
   end
+
   # Clears the cache for an event when a booking changes the amount
   # of free seats on an occasion.
   def sweep_event_cache
@@ -342,5 +352,27 @@ class BookingsController < ApplicationController
         NotificationRequestMailer.unbooking_notification(req).deliver
       end
     end
+  end
+
+  # Sends email to administrators when the requirement field (Speciella krav/Extra önskemål ang. bokning)
+  # of a booking has changed
+  def notify_admins_of_changed_booking_requirements(booking, requirement_is_changed)
+    BookingMailer.booking_requirements_added_or_changed_email(
+        Role.find_by_symbol(:admin).users,
+        current_user(),
+        booking,
+        true
+    ).deliver if requirement_is_changed
+  end
+
+  # Sends email to administrators when the requirement field (Speciella krav/Extra önskemål ang. bokning)
+  # of a booking has been set when creating the booking
+  def notify_admins_of_new_booking_requirements(booking)
+    BookingMailer.booking_requirements_added_or_changed_email(
+        Role.find_by_symbol(:admin).users,
+        current_user(),
+        booking,
+        false
+    ).deliver if booking.requirement.present?
   end
 end

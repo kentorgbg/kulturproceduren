@@ -1,0 +1,27 @@
+<h1>Kulturproceduren - Speciella krav/Extra information ang. bokning</h1>
+
+<p>
+  Bokningen för <%= @booking.group.name %>, <%= @booking.group.school.name %>
+</p>
+<p>
+  till <%= @booking.occasion.event.name %>,
+</p>
+<p>
+  föreställningen <%= @booking.occasion.date %> kl <%= l @booking.occasion.start_time, format: :only_time %>
+</p>
+<p>
+  har bokats med nya eller ändrade speciella krav/extra information angående bokning av  <%= @user.name %> (<%= @user.email %>, <%= @user.cellphone %>)
+</p>
+<p>
+  <%= link_to "Öppna bokningsbekräftelse", :controller => "bookings", :action => "show",
+              :only_path => false, :id => @booking.id, :host => "webapps.malmo.se/kp" %>
+</p>
+
+<h3>Speciella krav/Extra information ang. bokning</h3>
+
+<p>
+  <%= @booking.requirement %>
+</p>
+
+
+

@@ -29,6 +29,7 @@ class Event < ActiveRecord::Base
     where("id not in (select to_id from event_links where from_id = ?)", event.id)
     .where("id != ?", event.id) 
   }
+
   scope :not_linked_to_culture_provider, lambda{ |culture_provider|
     where("id not in (select event_id from culture_providers_events where culture_provider_id = ?)", culture_provider.id)
   }
@@ -51,7 +52,6 @@ class Event < ActiveRecord::Base
     source: :user
   
   has_many :districts, lambda{ distinct.order(name: :asc) }, through: :tickets
-  
 
   has_many(:groups, lambda{ distinct.order("groups.name ASC") }, through: :tickets) do
     # Scope by district
@@ -62,13 +62,13 @@ class Event < ActiveRecord::Base
     end
   end
 
-
   has_many :unordered_groups, lambda{ distinct },
     through: :tickets,
     class_name: "Group",
     source: :group
   
   has_many :occasions, lambda{ order("date ASC, start_time ASC, stop_time ASC") }, dependent: :destroy
+
   has_many :reportable_occasions,
     lambda{ where("occasions.date <?", Date.today).order("date ASC, start_time ASC, stop_time ASC") },
     class_name: "Occasion"
