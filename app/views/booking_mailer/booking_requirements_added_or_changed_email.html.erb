@@ -1,0 +1,28 @@
+<h1>Kulturproceduren - Speciella krav/Extra information ang. bokning</h1>
+
+<p>
+  Bokningen för
+  <%= @booking.group.name %>, <%= @booking.group.school.name %>
+  till
+  <%= @booking.occasion.event.name %>,
+  föreställningen
+  <%= @booking.occasion.date %> kl <%= l @booking.occasion.start_time, format: :only_time %>
+  har bokats med nya eller ändrade speciella krav/extra information angående bokning av
+  <%= @user.name %> (<%= @user.email %>, <%= @user.cellphone %>).
+</p>
+
+<p>
+  <%= @booking.requirement %>
+</p>
+
+<% if @booking.bus_booking? %>
+    <p>
+      Denna bokning innehåller en bussbokning:
+    </p>
+    <ul>
+      <li><strong>Från hållplats:</strong> <%= @booking.bus_stop %></li>
+      <li><strong>Bokningstyp:</strong> <%= @booking.bus_one_way ? "Enkel resa" : "Tur och retur" %></li>
+    </ul>
+<% end %>
+
+
