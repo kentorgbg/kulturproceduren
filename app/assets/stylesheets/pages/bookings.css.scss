@@ -7,6 +7,9 @@ aside.bookings {
     @include columns(4, true);
 }
 
+table.bookings {
+  clear: both;
+}
 
 #booking-confirmation {
     font-family: $sans-serif;
