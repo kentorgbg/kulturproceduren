@@ -9,7 +9,7 @@ class SendAnswerForms
     
     occasions.each do |occasion|
       occasion.bookings.active.each do |booking|
-        if booking.answer_form && !booking.answer_form.completed
+        if booking.answer_form && !booking.answer_form.try(:completed)
           OccasionMailer.answer_form_email(occasion, booking).deliver
           puts "Sending mail about evaluation form for #{occasion.event.name}, #{occasion.date} to #{booking.companion_email}"
         end
