@@ -1,0 +1,5 @@
+- cache standing_events_cache_key(culture_provider), skip_digest: true do
+  - unless culture_provider.standing_events.empty?
+    %ul
+      - culture_provider.standing_events.each do |event|
+        %li= link_to event.name, event

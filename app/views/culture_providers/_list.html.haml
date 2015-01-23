@@ -1,0 +1,22 @@
+%nav.culture-providers-nav
+  .btn-group
+    = link_to "Kommande evenemang", culture_provider_path(@culture_provider, show_list: :occasions),
+      class: "btn btn-default#{ " active" if occasions_list?}"
+    = link_to "Löpande evenemang", culture_provider_path(@culture_provider, show_list: :events),
+      class: "btn btn-default#{ " active" if events_list?}"
+    - if user_online? && current_user.can_administrate?(culture_provider)
+      = link_to "Alla evenemang", culture_provider_path(@culture_provider, show_list: :all_events),
+        class: "btn btn-default#{ " active" if all_events_list?}"
+
+%section.events
+  - if occasions_list?
+    - cache upcoming_occasions_cache_key(culture_provider), skip_digest: true do
+      - unless culture_provider.upcoming_occasions.empty?
+        = render partial: "calendar/occasions_list",
+            locals: { occasions: culture_provider.upcoming_occasions, hide_culture_provider: true }
+  - elsif events_list?
+    = render :partial => 'events_list',
+      locals: { culture_provider: culture_provider }
+  - elsif all_events_list? && user_online? && current_user.can_administrate?(@culture_provider)
+    = render :partial => 'all_events_list',
+      locals: { culture_provider: culture_provider }

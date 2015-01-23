@@ -1,0 +1,5 @@
+- cache all_events_cache_key(culture_provider), skip_digest: true do
+  - unless culture_provider.events.empty?
+    - culture_provider.events.order(created_at: :desc).each do |event|
+      %li= link_to event.name, event
+

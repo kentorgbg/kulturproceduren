@@ -2,6 +2,21 @@ ul.culture-providers {
     font-family: $sans-serif;
 }
 
+.culture-providers-nav {
+  @include clearfix();
+  margin: 1em 0;
+
+  & > a {
+    display: inline-block;
+    margin-left: 1em;
+    line-height: 34px;
+  }
+
+  .culture-providers {
+    float: right;
+  }
+}
+
 nav.tab-event-types {
   .tabbable {
     @include columns(12);
