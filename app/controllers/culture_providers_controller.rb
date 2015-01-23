@@ -97,6 +97,35 @@ class CultureProvidersController < ApplicationController
   end
   helper_method :all_events_cache_key
 
+  # Part of implementation of tabs (Kommande.../Löpande.../Alla...) in culture providers
+  def occasions_list?
+    show_list == :occasions
+  end
+  helper_method :occasions_list?
+
+  # Part of implementation of tabs (Kommande.../Löpande.../Alla...) in culture providers
+  def events_list?
+    show_list == :events
+  end
+  helper_method :events_list?
+
+  # Part of implementation of tabs (Kommande.../Löpande.../Alla...) in culture providers
+  def all_events_list?
+    show_list == :all_events
+  end
+  helper_method :all_events_list?
+
+  # Sets the list to use for tabs (Kommande.../Löpande.../Alla...) based on the incoming list parameter
+  def show_list
+    if params[:show_list] == 'events'
+      :events
+    elsif params[:show_list] == 'all_events'
+      :all_events
+    else
+      :occasions
+    end
+  end
+  helper_method :culture_provider_list
 
   private
 

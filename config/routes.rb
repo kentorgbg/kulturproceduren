@@ -152,8 +152,11 @@ Kulturproceduren::Application.routes.draw do
   end
 
   resources :answers
+
   resources :questions,       except: [:show, :new]
+
   resources :categories,      except: [:show, :new]
+
   resources :category_groups, except: [:show, :new]
 
   resources :versions, only: [] do
@@ -202,6 +205,7 @@ Kulturproceduren::Application.routes.draw do
   end
 
   resources :age_groups, except: [:show, :index, :new]
+
   resources :role_applications, except: [:new] do
     collection do
       get :archive

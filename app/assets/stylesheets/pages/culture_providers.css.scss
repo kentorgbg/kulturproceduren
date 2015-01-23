@@ -1,24 +1,26 @@
-ul.culture-providers {
-    font-family: $sans-serif;
+.culture-providers-nav {
+  @include clearfix();
+  margin: 1em 0;
+
+  & > a {
+    display: inline-block;
+    margin-left: 1em;
+    line-height: 34px;
+  }
 }
-section.events {
-    @include clearfix();
 
-    .occasions {
-        @include columns(8);
-    }
-    .events {
-        @include columns(4, true);
+section.culture-providers-events {
+  @include clearfix();
+  @include columns(12);
 
-        li {
-            margin-bottom: 0.3em;
-        }
-    }
-    .all_events {
-        @include columns(4, true);
+  ul {
+    list-style-position: inside;
+    padding: 0px;
+    margin: 0px;
+  }
 
-        li {
-            margin-bottom: 0.3em;
-        }
-    }
+  li {
+    margin-bottom: 0.3em;
+  }
+
 }
