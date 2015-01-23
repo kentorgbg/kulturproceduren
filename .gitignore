@@ -6,6 +6,7 @@
 /.rvmrc
 /.rbenv-*
 /tags
+/.idea
 
 # /config/
 /config/database.yml

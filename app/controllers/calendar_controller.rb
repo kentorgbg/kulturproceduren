@@ -83,12 +83,13 @@ class CalendarController < ApplicationController
     calendar_list == :occasions
   end
   helper_method :occasions_calendar?
+
   def events_calendar?
     calendar_list == :events
   end
   helper_method :events_calendar?
 
-  # Sets the list to used based on the incoming list parameter
+  # Sets the list to use based on the incoming list parameter
   def calendar_list
     params[:list] == 'events' ? :events : :occasions
   end
