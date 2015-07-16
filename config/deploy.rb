@@ -1,8 +1,8 @@
 # config valid only for Capistrano 3.2.1
 lock "3.2.1"
 
-set :application, "kulturproceduren"
-set :repo_url, "https://github.com/malmostad/kulturproceduren.git"
+set :application, "kulturkartan"
+set :repo_url, "https://github.com/malmostad/kulturkartan.git"
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }

@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Kulturproceduren::Application.load_tasks
+Kulturkartan::Application.load_tasks

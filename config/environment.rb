@@ -13,4 +13,4 @@ APP_CONFIG = {}
 end
 
 # Initialize the rails application
-Kulturproceduren::Application.initialize!
+Kulturkartan::Application.initialize!

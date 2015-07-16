@@ -3,7 +3,7 @@ namespace :kp do
   #desc "Generates documentation for KP"
   #Rake::RDocTask.new("doc") { |rdoc|
   #  rdoc.rdoc_dir = 'doc/app'
-  #  rdoc.title    = "Kulturproceduren"
+  #  rdoc.title    = "Kulturkartan"
   #  rdoc.options << '--line-numbers' << '--inline-source' << '--all'
   #  rdoc.options << '--charset' << 'utf-8'
   #  rdoc.rdoc_files.include('doc/README_FOR_APP')
